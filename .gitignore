@@ -1,4 +1,12 @@
-configuration.json
-__pycache__
 test_canvas_upload.py
 .DS_Store
+
+# Folder to ignore
+.idea
+__pycache__
+venv
+build
+dist
+resources
+
+*.spec
