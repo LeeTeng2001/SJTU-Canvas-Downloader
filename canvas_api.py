@@ -1,13 +1,26 @@
 from canvasapi import Canvas, exceptions
+from typing import Callable
 import os
 
 
-def download_canvas(secret_token, course_num, save_to_path, print_output, sync_on: bool, canvas_struct: bool):
+def download_canvas(secret_token: str, course_num: int, save_to_path: str,
+                    print_output: Callable[[str], None], sync_on: bool, canvas_struct: bool) -> None:
+    """
+    Download files from canvas
+    
+    Args:
+        secret_token: token to access canvas api
+        course_num: course number to download from
+        save_to_path: which folder to save to
+        print_output: output function (eg: terminal or qt output)
+        sync_on:
+        canvas_struct:
+    """
     try:
         canvas = Canvas("https://oc.sjtu.edu.cn/", secret_token)  # Init
         course = canvas.get_course(course_num)
     except exceptions.InvalidAccessToken:
-        print_output("FAILED. Check your secret token!")
+        print_output("下载失败，请检查你的口令牌")
         return
     except exceptions.ResourceDoesNotExist:
         print_output("FAILED. Check your course number!")

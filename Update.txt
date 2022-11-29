@@ -1,2 +1,0 @@
-v1.0 - Initial build
-v1.1 - Added sync & ability to choose download structure
