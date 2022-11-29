@@ -1,8 +1,8 @@
 ## 以下是面向用户文档
 
 ### 下载链接
-1. Window 下载链接，下载exe
-2. Mac 下载链接，下载dmg
+1. Window 下载链接
+2. [Mac 下载链接](https://github.com/LeeTeng2001/SJTU-Canvas-Downloader/releases/download/v1.2/SJTU.Canvas.dmg)
 
 ### 教程
 1. 去[Canvas设置](https://oc.sjtu.edu.cn/profile/settings)，滑倒下方找到**允许融入使用的外部软件**，点击创建新访问许可证，用途随便写，过期可以留空白
@@ -53,7 +53,7 @@ $ pip install -r requirement.txt
   - Initial build
 - v1.1 
   - Added sync & ability to choose download structure
-- v1.2 (Next release) 
+- v1.2 (Current release) 
   - Update to QT6
   - restructure project for maintainability
   - Add docs and code refactoring
