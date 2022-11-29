@@ -1,7 +1,7 @@
 ## 以下是面向用户文档
 
 ### 下载链接
-1. Window 下载链接
+1. [Window 下载链接](https://github.com/LeeTeng2001/SJTU-Canvas-Downloader/releases/download/v1.2/SJTU.Canvas.exe)
 2. [Mac 下载链接](https://github.com/LeeTeng2001/SJTU-Canvas-Downloader/releases/download/v1.2/SJTU.Canvas.dmg)
 
 ### 教程
@@ -25,14 +25,14 @@ $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip install -r requirement.txt
  
- # Run 
- $ python canvas_downloader.py
+# Run 
+$ python canvas_downloader.py
  
- # Build executable and disk (mac)
- $ pyinstaller -n "SJTU Canvas下载器" -w --icon=resources/canvas.icns canvas_downloader.py
- $ mkdir -p dist/dmg
- $ cp -r dist/SJTU\ Canvas下载器.app dist/dmg
- $ create-dmg \
+# Build executable and disk (mac)
+$ pyinstaller -n "SJTU Canvas下载器" -w --icon=resources/canvas.icns canvas_downloader.py
+$ mkdir -p dist/dmg
+$ cp -r dist/SJTU\ Canvas下载器.app dist/dmg
+$ create-dmg \
   --volname "SJTU Canvas下载器" \
   --volicon "resources/canvas.icns" \
   --window-pos 200 120 \
@@ -44,8 +44,8 @@ $ pip install -r requirement.txt
   "dist/SJTU Canvas下载器.dmg" \
   "dist/dmg/"
  
- # Build executable (window)
- $ pyinstaller -n "SJTU Canvas下载器" -w --icon=resources/canvas.ico canvas_downloader.py
+# Build executable (window)
+$ pyinstaller -n "SJTU Canvas下载器" --onefile -w --icon=resources/canvas.ico canvas_downloader.py
 ```
 
 ## Change Log

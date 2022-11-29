@@ -275,6 +275,7 @@ class CanvasDownloadThread(QThread):
 if __name__ == '__main__':
     # Application entry
     app = QApplication(sys.argv)
+    app.setWindowIcon(QtGui.QIcon('resources/canvas.ico')) # You can comment this out if you don't have the icon
     view = Window()
     view.show()
     sys.exit(app.exec())
