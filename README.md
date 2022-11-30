@@ -1,3 +1,9 @@
+## Canvas下载器演示
+
+![image info](./showcase/showcase-1.jpg)
+
+![image info](./showcase/showcase-2.jpg)
+
 ## 以下是面向用户文档
 
 ### 下载链接

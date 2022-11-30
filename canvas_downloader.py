@@ -1,10 +1,9 @@
-from PyQt6.QtGui import QIntValidator
+from PyQt6.QtGui import QIntValidator, QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTextEdit, QLabel, QHBoxLayout, QStatusBar, \
     QVBoxLayout, QWidget, QGroupBox, QRadioButton, QPushButton, QButtonGroup, QFileDialog, \
     QLineEdit, QInputDialog, QLayout, QBoxLayout
 from PyQt6.QtCore import Qt, pyqtSlot, QThread, pyqtSignal
 import sys
-import os
 from utils import get_application_setting, ConfigKey, print_middle, check_setting
 from canvas_api import download_canvas
 
@@ -163,9 +162,8 @@ class Window(QMainWindow):
         
         if done:
             self.secret_token_str.setText("Canvas令牌状态: 存在")
-            self.saveSetting(update_config_code={ConfigKey.SECRET_TOKEN: token})
             self.output.append("已更新Canvas令牌，正在保存设置。。。")
-            self.saveSetting()
+            self.saveSetting(update_config_code={ConfigKey.SECRET_TOKEN: token})
             # self.output.append(f"Token: {token}")
         else:
             self.output.append("取消设置Canvas令牌")
@@ -275,7 +273,7 @@ class CanvasDownloadThread(QThread):
 if __name__ == '__main__':
     # Application entry
     app = QApplication(sys.argv)
-    app.setWindowIcon(QtGui.QIcon('resources/canvas.ico')) # You can comment this out if you don't have the icon
+    app.setWindowIcon(QIcon('resources/canvas.ico'))  # You can comment this out if you don't have the icon
     view = Window()
     view.show()
     sys.exit(app.exec())
