@@ -30,15 +30,20 @@ jobs:
         mkdir -p dist/dmg
         cp -r dist/SJTU\ Canvas下载器.app dist/dmg
     - name: Create dmg
-      run : |
-        create-dmg \
-        --volname "SJTU Canvas下载器" \
-        --volicon "resources/canvas.icns" \
-        --window-pos 200 120 \
-        --window-size 600 300 \
-        --icon-size 100 \
-        --icon "SJTU Canvas下载器.app" 175 120 \
-        --hide-extension "SJTU Canvas下载器.app" \
-        --app-drop-link 425 120 \
-        "dist/SJTU Canvas下载器.dmg" \
+      run : 
+        create-dmg
+        --volname "SJTU Canvas下载器"
+        --volicon "resources/canvas.icns"
+        --window-pos 200 120
+        --window-size 600 300
+        --icon-size 100
+        --icon "SJTU Canvas下载器.app" 175 120
+        --hide-extension "SJTU Canvas下载器.app"
+        --app-drop-link 425 120
+        "dist/SJTU Canvas下载器.dmg"
         "dist/dmg/"
+    - name: Upload dmg
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: canvas-downloader-macos.dmg
+        path: "dist/SJTU Canvas下载器.dmg"
