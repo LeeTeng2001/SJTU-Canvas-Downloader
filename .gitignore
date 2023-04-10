@@ -7,6 +7,6 @@ __pycache__
 venv
 build
 dist
-resources
+#resources
 
 *.spec
