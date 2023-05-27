@@ -2,6 +2,7 @@ from canvasapi import Canvas, exceptions
 from typing import Callable
 import os
 from pathlib import Path
+from pathvalidate import sanitize_filename,sanitize_filepath
 from utils import get_application_setting, ConfigKey
 
 app_setting = get_application_setting()
@@ -52,11 +53,12 @@ def download_canvas(print_output: Callable[[str], None]) -> None:
         for file in folder.get_files():
             if not sync_on or str(file) not in current_files:  # Download checking condition
                 try:
-                    print_output(f"位于{folder_top if folder_top else 'Canvas Home'}，正在下载文件：{file}")
+                    file_name=sanitize_filename(str(file),platform="auto")
+                    print_output(f"位于{folder_top if folder_top else 'Canvas Home'}，正在下载文件：{file_name}")
                     
                     # Create folder to replicate canvas structure
-                    Path(download_to_folder, folder_top).mkdir(parents=True, exist_ok=True)
-                    file.download(Path(app_setting.value(ConfigKey.FOLDER_PATH_ABS), folder_top, str(file)).as_posix())
+                    sanitize_filepath(Path(download_to_folder, folder_top),platform="auto").mkdir(parents=True, exist_ok=True)
+                    file.download(sanitize_filepath(Path(download_to_folder, folder_top, file_name),platform="auto").as_posix())
                     new_files_idx += 1  # only increment after download because it might have error during download
                 except exceptions.ResourceDoesNotExist:
                     print_output(f"下载失败：资源不存在")
